@@ -9,12 +9,12 @@ models:
         description: Unique identifier for host
         tests:
           - unique
-         
+          - not_null
 
       - name: host_name
         description: Name of host
         tests:
-          
+          - not_null
 
       - name: response_rate
         description: Host response percentage
