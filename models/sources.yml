@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: analytics
+    schema: BRONZE
+
+    tables:
+      - name: LISTINGS
+      - name: HOSTS
+      - name: BOOKINGS
