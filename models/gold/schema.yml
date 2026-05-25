@@ -1,21 +1,38 @@
 version: 2
 
 models:
+
   - name: dim_host
-    description: Host dimension table for analytics
+    description: Host dimension table
 
     columns:
       - name: host_id
-        description: Unique host identifier
         tests:
           - unique
-          
+          - not_null
+
+
+  - name: dim_listings
+    description: Listing dimension table
+
+    columns:
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+
 
   - name: fact_bookings
-    description: Booking transaction fact table
+    description: Booking fact table
 
     columns:
       - name: booking_id
         tests:
           - unique
-         
+          - not_null
+
+      - name: listing_id
+        tests:
+          - relationships:
+              to: ref('dim_listings')
+              field: listing_id
