@@ -1,1 +1,1 @@
-# dbt_practice
+A modern dbt-based data engineering project implementing a complete Bronze–Silver–Gold pipeline with data cleaning, transformations, and analytics-ready star schema design. Includes SCD Type 2 modeling, data quality tests, and Snowflake integration.
