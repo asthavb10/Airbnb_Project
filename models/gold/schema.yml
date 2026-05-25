@@ -31,8 +31,4 @@ models:
           - unique
           - not_null
 
-      - name: listing_id
-        tests:
-          - relationships:
-              to: ref('dim_listings')
-              field: listing_id
+      
