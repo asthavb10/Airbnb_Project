@@ -7,28 +7,24 @@ cleaned as (
     select
         host_id,
 
-        -- handle NULL + empty string
         case 
             when host_name is null or trim(host_name) = '' 
             then 'UNKNOWN_HOST'
             else trim(host_name)
         end as host_name,
 
-        -- handle NULL + empty string for date
         case 
             when host_since is null or trim(cast(host_since as varchar)) = ''
             then date '1900-01-01'
             else host_since
         end as host_since,
 
-        -- handle NULL + empty string for boolean
         case 
             when is_superhost is null or trim(cast(is_superhost as varchar)) = ''
             then false
             else is_superhost
         end as is_superhost,
 
-        -- handle NULL, empty string, and 0
         case 
             when response_rate is null 
               or trim(cast(response_rate as varchar)) = ''
@@ -41,7 +37,7 @@ cleaned as (
 
     from source
     where host_id is not null
-      and trim(cast(host_id as varchar)) != ''  -- remove empty host_ids too
+      and trim(cast(host_id as varchar)) != ''  
 )
 
 select * from cleaned
